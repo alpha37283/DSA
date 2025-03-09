@@ -1,0 +1,49 @@
+class LRU {
+    constructor(capacity){
+
+    }
+
+    get(key){
+
+    }
+
+    put(key, value){
+
+    }
+}
+
+
+// solution
+
+/**
+ 
+we can use an array to store the hash(key , value)
+but in that case lookup will be O(n) where n is if larger in case of Worst case, we will have problem
+
+we can use LL
+- in that case the operation to 
+get(key) will be O(n)
+put(key, value) will also be of O(n)
+
+steps:
+# put(key, value)
+
+if LL is empty, simply create a new node
+if not empty, place the new Node at the end 
+if already exist 
+    - remove the existing node from LL and Hash
+    - create a new node at the end
+
+# get(key)
+
+if(!exist)
+- return not exist
+else 
+- nd = new Node();
+// tail would be LRU node 
+
+nd -> next = head;
+tail -> next = head; 
+temp = head->next->next === NULL;
+
+ */
