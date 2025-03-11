@@ -1,13 +1,62 @@
 class LRU {
     constructor(capacity){
+        this.capacity = capacity;
+        this.map = new Map();
+        this.head = head;
+        this.tail = tail;
+        this.length = 0;
 
     }
+    #removeNode(){
+        // if there is a prev of node
+        if(node.prev)
+        {
 
+        }
+
+        // if there is a next of node
+
+        // if the node is itself a head
+
+        // if the node is itself a tail
+
+    }
     get(key){
 
     }
 
     put(key, value){
+        // Case: if the capacity is full
+        if(this.length === this.capacity)
+        {
+            if(!(this.map.has(key))) // and the key is not already exist
+            {
+                // remove the tail
+                // and add a new node at the end
+
+            }
+        }
+
+
+
+        // Case: if the key already exist
+        if(this.map.has(key))
+        {
+
+        }
+
+        // creating a node
+        const node = {
+            next,
+            prev,
+            value,
+        }
+
+        this.map.set(key, node);
+        this.length += 1;
+
+        
+        
 
     }
 }
@@ -30,9 +79,11 @@ steps:
 
 if LL is empty, simply create a new node
 if not empty, place the new Node at the end 
+if full return
 if already exist 
     - remove the existing node from LL and Hash
     - create a new node at the end
+
 
 # get(key)
 
