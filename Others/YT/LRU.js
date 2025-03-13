@@ -7,18 +7,31 @@ class LRU {
         this.length = 0;
 
     }
-    #removeNode(){
+    #removeNode(node){
         // if there is a prev of node
         if(node.prev)
         {
-
+            node.prev.next = node.next; 
         }
+        
 
         // if there is a next of node
+        if(node.next)
+        {
+            node.next.prev = node.prev;
+        }
 
         // if the node is itself a head
+        if(node === this.head)
+        {
+            this.head = node.next;
+        }
 
         // if the node is itself a tail
+        if(node = this.tail)
+        {
+            this.tail = node.prev;
+        }
 
     }
     get(key){
@@ -42,22 +55,19 @@ class LRU {
         // Case: if the key already exist
         if(this.map.has(key))
         {
-
+            this.#removeNode(this.map.get(key));
         }
 
         // creating a node
         const node = {
-            next,
-            prev,
+            next : this.head,
+            prev : null,
             value,
         }
+        this.head = node;
 
         this.map.set(key, node);
         this.length += 1;
-
-        
-        
-
     }
 }
 
