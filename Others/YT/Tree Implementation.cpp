@@ -13,22 +13,59 @@ class Node{
 		this->right = NULL;
 	}
 	
-	void insertNode(int data)
-	{
-		
-	}
-	
-	void preOrderTraversal()
-	{
-		
-	}
-	
-	void printTree()
-	{
-		
-	}
 };
+
+//class Tree{
+//	Node *root;
+//	
+//	Tree(int data)
+//	{
+//		this->root = new Node(data);
+//	}
+//};
+
+Node* buildTree(Node * &root)
+{
+	int data;
+	cout << "Enter a data : " ;
+	cin >> data;
+	root = new Node(data);
+	
+	if(data == -1)
+	{
+		return NULL;
+	}
+	
+	cout << "Enter for left of : "<< data << endl;
+	root->left = buildTree(root->left);
+	
+	cout << "Enter for right of : "<< data << endl;
+	root->right = buildTree(root->right);
+	
+	return root;
+	
+}
+
+void inorderTraversal(Node *root)
+{
+	if(root == NULL)
+	{
+		return ;
+	}
+	
+	inorderTraversal(root->left);
+	cout << root->data << " ";
+	inorderTraversal(root->right);
+	
+	return root;
+}
+
 int main()
 {
+	
+	Node *root = NULL;
+	root = buildTree(root);
+	inorderTraversal(root);
+	
 	
 }
