@@ -8,8 +8,6 @@ int sum(int n)
 	}
 	
 	return n + sum(n - 1);
-	
-	
 }
 
 int fact(int n)
@@ -23,11 +21,26 @@ int fact(int n)
 }
 int printCounting(int n)
 {
+	 if( n == 0)
+	 {
+	 	return 0;
+	 }
 	 
+	 int prev = printCounting(n - 1);
+	 int current = 1 + prev;
+	 cout << current << " ";
+	 return current;
 }
 int pow2(int n)
 {
+	if(n == 0)
+	{
+		return 1;
+	}
 	
+	int prevVal = pow2(n - 1);
+	int currentVal = 2 * prevVal;
+	return currentVal;
 }
 int main()
 {
@@ -37,6 +50,10 @@ int main()
 	
 	int f;
 	cin >> f;
-	cout<< "Factorial of " << f << " is " << fact(f) ;
+//	cout<< "Factorial of " << f << " is " << fact(f) ;
+//	cout<< "pow of " << f << "^2 is " << pow2(f) ;
+
+printCounting(f);
+	
 	
 }
