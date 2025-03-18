@@ -56,16 +56,46 @@ void inorderTraversal(Node *root)
 	inorderTraversal(root->left);
 	cout << root->data << " ";
 	inorderTraversal(root->right);
-	
-	return root;
+
 }
 
+
+
+void postorderTraversal(Node *root)
+{
+	if(root == NULL)
+	{
+		return ;
+	}
+	
+	postorderTraversal(root->left);
+	postorderTraversal(root->right);
+	cout << root->data << endl;
+
+	
+	
+}
+
+void postorderTraversal(Node *root)
+{
+	if(root == NULL)
+	{
+		return ;
+	}
+}
 int main()
 {
 	
 	Node *root = NULL;
 	root = buildTree(root);
+	
+	cout << "InOrderTraversal : ";
 	inorderTraversal(root);
+	
+	cout << "PostOrderTraversal : ";
+	postorderTraversal(root);
+	
+	cout << "PreOrderTraversal : ";
 	
 	
 }
