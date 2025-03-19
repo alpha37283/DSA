@@ -42,6 +42,33 @@ int pow2(int n)
 	int currentVal = 2 * prevVal;
 	return currentVal;
 }
+
+void srcToDest(int src, int dest)
+{
+	 if(src == dest)
+	 {
+	 	return ; 
+	 }
+	 
+	 cout << src << " " << dest << endl ;
+	 src += 1;
+	 srcToDest(src, dest);
+}
+
+int fabonacciSer(int n) // return nth number of fabonacci series
+{
+	 if( n == 1)
+	 {
+	 	return 1;
+	 }
+	 
+	 if( n == 0)
+	 {
+	 	return 0;
+	 }
+	 
+	 return fabonacciSer(n - 1) + fabonacciSer(n - 2);
+}
 int main()
 {
 //	int res = 0;
@@ -53,7 +80,7 @@ int main()
 //	cout<< "Factorial of " << f << " is " << fact(f) ;
 //	cout<< "pow of " << f << "^2 is " << pow2(f) ;
 
-printCounting(f);
+	cout << f << "th term is : " << fabonacciSer(f);
 	
 	
 }
