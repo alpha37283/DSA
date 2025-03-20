@@ -43,7 +43,7 @@ int pow2(int n)
 	return currentVal;
 }
 
-void srcToDest(int src, int dest)
+void srcToDest(int src, int dest) // 5 
 {
 	 if(src == dest)
 	 {
@@ -69,6 +69,39 @@ int fabonacciSer(int n) // return nth number of fabonacci series
 	 
 	 return fabonacciSer(n - 1) + fabonacciSer(n - 2);
 }
+
+
+int distinctWaysToClimbStairs(int n)
+{
+	 if( n < 0)
+	 {
+	 	return 0;
+	 }
+	 
+	 if( n == 0)
+	 {
+	 	 return 1;
+	 }
+	 
+	 int ans = distinctWaysToClimbStairs(n - 1) + distinctWaysToClimbStairs(n - 2);
+	 
+	 return ans;
+}
+string s[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+void sayDigits(int n)
+{
+	if( n == 0 )
+	{
+		return ;
+	}
+	
+	int lastDigit = n % 10;
+	int shortned = n / 10;
+	
+	sayDigits(shortned);
+	cout << s[lastDigit] << " ";
+	 
+}
 int main()
 {
 //	int res = 0;
@@ -80,7 +113,10 @@ int main()
 //	cout<< "Factorial of " << f << " is " << fact(f) ;
 //	cout<< "pow of " << f << "^2 is " << pow2(f) ;
 
-	cout << f << "th term is : " << fabonacciSer(f);
+//	cout << f << "th term is : " << fabonacciSer(f);
+
+// 	sayDigits(f);
+	cout << "To climb " << f << " Stairs there exist " << distinctWaysToClimbStairs(5) << " ways.";
 	
 	
 }
