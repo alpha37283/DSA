@@ -102,21 +102,32 @@ void sayDigits(int n)
 	cout << s[lastDigit] << " ";
 	 
 }
+
+void isSorted(int arr[], int l)
+{
+	if(arr[])
+
+}
 int main()
 {
 //	int res = 0;
 //	res = sum(4);
 //	cout << res;
 	
-	int f;
-	cin >> f;
+//	int f;
+//	cin >> f;
 //	cout<< "Factorial of " << f << " is " << fact(f) ;
 //	cout<< "pow of " << f << "^2 is " << pow2(f) ;
 
 //	cout << f << "th term is : " << fabonacciSer(f);
 
 // 	sayDigits(f);
-	cout << "To climb " << f << " Stairs there exist " << distinctWaysToClimbStairs(5) << " ways.";
+//	cout << "To climb " << f << " Stairs there exist " << distinctWaysToClimbStairs(5) << " ways.";
+	
+	
+	int arr[5] = {1,2,3,4,5};
+	int l = (sizeof(arr)/sizeof(arr[0]));
+	isSorted(arr, l);
 	
 	
 }
