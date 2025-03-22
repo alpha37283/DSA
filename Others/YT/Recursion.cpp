@@ -55,7 +55,7 @@ void srcToDest(int src, int dest) // 5
 	 srcToDest(src, dest);
 }
 
-int fabonacciSer(int n) // return nth number of fabonacci series
+int fabonacciSer(int n) // return nth number of fabonacci series 6
 {
 	 if( n == 1)
 	 {
@@ -71,7 +71,7 @@ int fabonacciSer(int n) // return nth number of fabonacci series
 }
 
 
-int distinctWaysToClimbStairs(int n)
+int distinctWaysToClimbStairs(int n)  // 7 
 {
 	 if( n < 0)
 	 {
@@ -88,7 +88,7 @@ int distinctWaysToClimbStairs(int n)
 	 return ans;
 }
 string s[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-void sayDigits(int n)
+void sayDigits(int n) // 8 
 {
 	if( n == 0 )
 	{
@@ -103,10 +103,70 @@ void sayDigits(int n)
 	 
 }
 
-void isSorted(int arr[], int l)
+bool isSorted(int arr[], int l) // 9
 {
-	if(arr[])
+	if(l == 0 || l == 1)
+	{
+		return true;
+	}
+	
+	if(arr[0] > arr[1])
+	{
+		return false;
+	}
+	
+	return isSorted(arr + 1, l - 1);
 
+}
+int sumRec(int arr[], int s) // 10
+{
+	if(s == 0)
+	{
+		return 0;
+	}
+	
+	int prev = sumRec(arr + 1, s - 1);
+	
+	return arr[0] + prev;
+}
+
+bool linearSearch(int arr[], int key, int s) // 11
+{
+	if(s == 0)
+	{
+		return false;
+	}
+	else if(arr[0] == key)
+	{ 
+		return true;
+	}
+	else
+	{
+		return linearSearch(arr + 1, key, s - 1);	
+	}
+}
+
+bool binarySearch(int arr[], int s, int e, int key)
+{
+	 // base case
+	 int mid;
+	 mid = (s + e) / 2; 
+	 if(arr[mid] == key)
+	 {
+	 	return true;
+	 }
+	 else if(arr[mid] > key) // 1 2 3 4 5 k = 4
+	 {
+	 	binarySearch(arr, s, e - 1, key);
+	 }
+	 else if(arr[mid] < key)
+	 {
+	 	binarySearch(arr, mid + 1, e, key);
+	 }
+	 else
+	 {
+	 	return false;
+	 }
 }
 int main()
 {
@@ -114,8 +174,8 @@ int main()
 //	res = sum(4);
 //	cout << res;
 	
-//	int f;
-//	cin >> f;
+	int f;
+	cin >> f;
 //	cout<< "Factorial of " << f << " is " << fact(f) ;
 //	cout<< "pow of " << f << "^2 is " << pow2(f) ;
 
@@ -127,7 +187,24 @@ int main()
 	
 	int arr[5] = {1,2,3,4,5};
 	int l = (sizeof(arr)/sizeof(arr[0]));
-	isSorted(arr, l);
-	
+//	if(isSorted(arr, l))
+//	{
+//		cout << "True";
+//	}	
+//	else
+//	{
+//		cout << "False";
+//	}
+
+//cout << "The sum of array is " << sumRec(arr, l);
+
+	if(linearSearch(arr, f, l))
+	{
+		cout << f << " is present in array.";
+	}
+	else
+	{
+		cout << f << " is not present in array.";
+	}
 	
 }
