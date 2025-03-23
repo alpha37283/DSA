@@ -151,22 +151,54 @@ bool binarySearch(int arr[], int s, int e, int key)
 	 // base case
 	 int mid;
 	 mid = (s + e) / 2; 
+	 
+	 if(s > e)
+	 {
+	 	return false;
+	 }
+	 
 	 if(arr[mid] == key)
 	 {
 	 	return true;
 	 }
 	 else if(arr[mid] > key) // 1 2 3 4 5 k = 4
 	 {
-	 	binarySearch(arr, s, e - 1, key);
+	 	return binarySearch(arr, s, e - 1, key);
 	 }
-	 else if(arr[mid] < key)
+	 else 
 	 {
-	 	binarySearch(arr, mid + 1, e, key);
+	 	return binarySearch(arr, mid + 1, e, key);
 	 }
-	 else
-	 {
-	 	return false;
-	 }
+}
+
+void reverseString(string &str, int s, int e)
+{
+	if(s > e)
+	{
+		return ;
+	}
+	
+	swap(str[s], str[e]);
+	s++;
+	e--;
+	reverseString(str,s,e);
+}
+
+bool palindrom(string str, int i)
+{ 
+	if( i > (str.length() - i - 1))
+	{
+		return true;
+	}
+	
+	if(str[i] != str[str.length() - i - 1])
+	{
+		return false;
+	}
+	
+	i++;
+//	cout << i << " ";
+	return palindrom(str, i);
 }
 int main()
 {
@@ -198,13 +230,18 @@ int main()
 
 //cout << "The sum of array is " << sumRec(arr, l);
 
-	if(linearSearch(arr, f, l))
+	string str = "alpha";	
+	if(palindrom(str,0))
 	{
-		cout << f << " is present in array.";
+		cout << str << " is palindrom";
 	}
 	else
 	{
-		cout << f << " is not present in array.";
+		cout << str << " is not palindrom";
 	}
 	
+	
+	
+//	reverseString(str, 0, str.length() - 1);
+//	cout << str;
 }
