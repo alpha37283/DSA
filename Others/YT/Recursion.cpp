@@ -146,7 +146,7 @@ bool linearSearch(int arr[], int key, int s) // 11
 	}
 }
 
-bool binarySearch(int arr[], int s, int e, int key)
+bool binarySearch(int arr[], int s, int e, int key) // 12 
 {
 	 // base case
 	 int mid;
@@ -171,7 +171,7 @@ bool binarySearch(int arr[], int s, int e, int key)
 	 }
 }
 
-void reverseString(string &str, int s, int e)
+void reverseString(string &str, int s, int e)  // 13 
 {
 	if(s > e)
 	{
@@ -184,7 +184,7 @@ void reverseString(string &str, int s, int e)
 	reverseString(str,s,e);
 }
 
-bool palindrom(string str, int i)
+bool palindrom(string str, int i)   // 14
 { 
 	if( i > (str.length() - i - 1))
 	{

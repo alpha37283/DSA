@@ -1,13 +1,18 @@
 class LRU {
     constructor(capacity){
         this.capacity = capacity;
-        this.map = new Map();
+        this.map = new Map(); // for storing the LL address o(1) ops
         this.head = head;
         this.tail = tail;
-        this.length = 0;
+        this.length = 0; // track length
 
     }
     #removeNode(node){
+
+        if(!node)
+        {
+            return ;
+        }
         // if there is a prev of node
         if(node.prev)
         {
@@ -44,6 +49,8 @@ class LRU {
         {
             if(!(this.map.has(key))) // and the key is not already exist
             {
+                this.#removeNode(this.tail);
+                this.length -= 1;
                 // remove the tail
                 // and add a new node at the end
 
@@ -66,9 +73,34 @@ class LRU {
         }
         this.head = node;
 
+        if(this.tail === null)
+        {
+            this.tail = head;
+        }
+
         this.map.set(key, node);
+
+        if(this.head != null)
+        {
+            this.head.prev = node;
+        }
+
         this.length += 1;
     }
+
+    debug()
+    {
+        let current = this.head;
+        const arr = [];
+
+        while(current != null)
+        {
+            arr.push(current);
+            current = current.next;
+        }
+    }
+
+   
 }
 
 
