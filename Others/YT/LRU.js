@@ -20,10 +20,14 @@ class LRU {
 
         if (node === this.head) {
             this.head = node.next;
+            // i think this should be added
+            // node.next.prev = null;
         }
 
         if (node === this.tail) {
             this.tail = node.prev;
+            // and this as well 
+            // node.prev.next = null;
         }
     }
 
