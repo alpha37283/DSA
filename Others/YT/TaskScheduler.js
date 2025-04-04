@@ -8,14 +8,11 @@ class TaskScheduler{
 
     getNextTask()
     {
-        if(this.concurrency > this.runningTasks && length(this.waitingQueue) > 0)
+        console.log('Getting next task !!!');
+        if(this.concurrency > this.runningTasks && this.waitingQueue.length > 0)
         {
             const nextTask = this.waitingQueue.shift();
             nextTask();
-        }
-        else
-        {
-            console.log('No elements in Q or concurrency limit.');
         }
 
     }
@@ -24,11 +21,12 @@ class TaskScheduler{
        return new Promise((resolve, reject)=>{
             async function __taskRunner()
             {
+                
                 try{
+                    this.runningTasks += 1;
                     const result = await task();
                     console.log(result);
                     resolve(result);
-                    this.runningTasks += 1;
                 }
                 catch(err){
                     console.log(err);
@@ -36,18 +34,19 @@ class TaskScheduler{
                 }
                 finally
                 {
-                    this.runningTask -= 1;
+                    this.runningTasks -= 1;
                     this.getNextTask();
                 }
             }
-
+            
             if(this.concurrency > this.runningTasks)
-            {
+            {  
                 __taskRunner.call(this);
             }
             else
             {
                 this.waitingQueue.push(__taskRunner.bind(this));
+                console.log(this.runningTasks, " : are running tasks \n", this.waitingQueue.length, " : are waiting.");
             }
        })
     }
@@ -55,10 +54,10 @@ class TaskScheduler{
 
 const scheduler = new TaskScheduler(2);
 
-scheduler.addTask(new Promise((res) => setTimeout(() => res('Task 1'), 5 * 1000)));
-scheduler.addTask(new Promise((res) => setTimeout(() => res('Task 2'), 2 * 1000)));
-scheduler.addTask(new Promise((res) => setTimeout(() => res('Task 3'), 1 * 1000)));
-scheduler.addTask(new Promise((res) => setTimeout(() => res('Task 4'), 5 * 1000)));
+scheduler.addTask(()=> new Promise((res) => setTimeout(() => res(`Task 1`), 5 * 1000)));
+scheduler.addTask(()=> new Promise((res) => setTimeout(() => res('Task 2'), 3 * 1000)));
+scheduler.addTask(()=> new Promise((res) => setTimeout(() => res('Task 3'), 1 * 1000)));
+scheduler.addTask(()=> new Promise((res) => setTimeout(() => res('Task 4'), 1 * 1000)));
 
 
 // only maxium of LIMIT at can run at a time 
