@@ -91,7 +91,8 @@ myEvent.emit("user:signUp",'Muneeb Hussain Shah');
 console.log('-------------------------------------------');
 myEvent.emit("user:signUp",'Ali');
 
-
-
-
 // read the OBSERVABLE DESIGN PATTERN
+// dry run the code 
+
+
+
