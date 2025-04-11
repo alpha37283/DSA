@@ -6,3 +6,9 @@ binds this reference to some function
 CALL pass current execution context to some other function
 
 call() allows us to borrow methods from other classes and execute them with a different this context.
+
+# ---------------------------------------------------------
+
+started preparation of competition
+
+https://cp-algorithms.com/
