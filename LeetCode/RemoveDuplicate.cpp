@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution
 {
 public:
@@ -16,3 +18,16 @@ public:
         return j;
     }
 };
+int main()
+{
+
+    Solution sol;
+    vector<int> nums = {1, 1, 2, 2, 3, 4, 4};
+    int newLength = sol.removeDuplicates(nums);
+    cout << "New length: " << newLength << endl;
+    cout << "Modified array: ";
+    for (int i = 0; i < newLength; i++)
+    {
+        cout << nums[i] << " ";
+    }
+}
